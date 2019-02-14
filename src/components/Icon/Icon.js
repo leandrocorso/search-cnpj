@@ -2,7 +2,7 @@ import React from 'react';
 import iconPackage from './package.svg';
 
 const Icon = ({ src, ...rest }) => (
-  <svg {...rest}>
+  <svg src={src} {...rest}>
     <use xlinkHref={`${iconPackage}#icon-${src}`} />
   </svg>
 );

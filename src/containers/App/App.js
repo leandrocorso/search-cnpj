@@ -12,8 +12,8 @@ const App = () => (
         <Wrapper>
             <GlobalStyle />
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/busca-cnpj" component={SearchCnpj} />
+                <Route className="testHome" exact path="/" component={Home} />
+                <Route className="testSearch" exact path="/busca-cnpj" component={SearchCnpj} />
             </Switch>
         </Wrapper>
     </BrowserRouter>

@@ -7,11 +7,11 @@ import { Icon } from '../../components';
 const FormGroup = styled.div`
 	height: 4.5rem;
 	padding: 1rem;
-	background-color: ${p => p.theme.colors.c4};
+	background-color: ${p => p.theme.themeDefault.colors.c4};
 
 	label {
 		font-size: 80%;
-		color: ${p => p.theme.colors.c7};
+		color: ${p => p.theme.themeDefault.colors.c7};
 	}
 `;
 
@@ -25,7 +25,7 @@ const InputGroup = styled.div`
 const CheckIcon = styled(Icon)`
 	width: .8rem;
 	height: .8rem;
-	fill: ${ p => p.theme.colors.c3 };
+	fill: ${ p => p.theme.themeDefault.colors.c3 };
 `;
 
 class InputText extends Component {
@@ -44,7 +44,7 @@ class InputText extends Component {
 
   render() {
     const { name, label, isValid, ...rest } = this.props;
-console.log(isValid)
+
     return (
     	<FormGroup>
     		<label htmlFor={name}>{label}</label>
@@ -55,6 +55,7 @@ console.log(isValid)
 					name={name}
 					onChange={e => this.handleChange(e.target.value)}
 					value={this.state.value}
+					className="inputTest"
 					/>
 				{ isValid && <CheckIcon src="check-alt" /> }
 			</InputGroup>

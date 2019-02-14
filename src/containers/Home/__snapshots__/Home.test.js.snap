@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Home component Should render correctly 1`] = `
+<styled.div>
+  <styled.div>
+    <Styled(Icon)
+      className="testHeadingIcon"
+      src="line-chart"
+    />
+    <styled.p>
+      Cotação de seguros
+      <br />
+      <small>
+        Solução inovadora da líder de mercado
+      </small>
+    </styled.p>
+    <styled.div>
+      <Button
+        className="testSearch"
+        color="primary"
+        icon="arrow-right2"
+        to="/busca-cnpj"
+      >
+        Iniciar
+      </Button>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

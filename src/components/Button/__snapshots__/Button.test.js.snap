@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Button component Should render correctly 1`] = `
+<Fragment>
+  <Styled(Link)
+    className="btn"
+  >
+    Text button
+  </Styled(Link)>
+</Fragment>
+`;

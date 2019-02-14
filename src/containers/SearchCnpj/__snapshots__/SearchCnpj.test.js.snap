@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SearchCnpj component Should render correctly 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <Styled(Icon)
+        className="testHeadingIcon"
+        src="line-chart"
+      />
+      <styled.p>
+        Nova Cotação 
+        <small>
+          #980
+        </small>
+      </styled.p>
+    </styled.div>
+    <styled.div />
+  </styled.div>
+  <styled.div>
+    <styled.div
+      className="testStep"
+    >
+      1
+    </styled.div>
+    Busca por CNPJ ou empresa
+  </styled.div>
+  <SearchCnpjForm />
+</styled.div>
+`;
+
+exports[`Testing SearchCnpj component Should render correctly 2`] = `
+<styled.form>
+  <Styled(InputText)
+    autoComplete="off"
+    id="cnpj"
+    isValid=""
+    label="CNPJ / Empresa"
+    mask={
+      Array [
+        /\\\\d/,
+        /\\\\d/,
+        ".",
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        ".",
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        "/",
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        "-",
+        /\\\\d/,
+        /\\\\d/,
+      ]
+    }
+    name="cnpj"
+    onChange={[Function]}
+    placeholder="__.___.___/___-__"
+  />
+  <styled.div>
+    <Button
+      className="testButton"
+      color="primary"
+      icon="arrow-right2"
+      to="/"
+    >
+      Ok
+    </Button>
+  </styled.div>
+</styled.form>
+`;

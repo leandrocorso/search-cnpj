@@ -17,10 +17,10 @@ const InputCnpj = styled(InputText)`
 	margin-top: .5rem;
 	font-size: 120%;
 	font-weight: 700;
-	color: ${p => p.theme.colors.c8};
+	color: ${p => p.theme.themeDefault.colors.c8};
 
 	&:focus {
-		color: ${p => p.theme.colors.c8};
+		color: ${p => p.theme.themeDefault.colors.c8};
 	}
 `;
 
@@ -51,16 +51,17 @@ class SearchCnpjForm extends Component {
 		return(
 			<Form>
 				<InputCnpj 
+					id="cnpj" 
 					name="cnpj" 
 					label="CNPJ / Empresa" 
 					placeholder="__.___.___/___-__"
 					mask={[/\d/,/\d/,'.',/\d/,/\d/,/\d/,'.',/\d/,/\d/,/\d/,'/',/\d/,/\d/,/\d/,/\d/,'-',/\d/,/\d/,]}
 					onChange={ this.getCnpj }
-					autocomplete="off"
+					autoComplete="off"
 					isValid={isValid}
 				/>
 				<Container>
-					<Button to="/" icon="arrow-right2" color={`${isValid ? 'success' : 'primary'}`}>Ok</Button>
+					<Button className="testButton" to="/" icon="arrow-right2" color={`${isValid ? 'success' : 'primary'}`}>Ok</Button>
 				</Container>
 			</Form>
 		);

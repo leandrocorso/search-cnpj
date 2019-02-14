@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing App component Should render correctly 1`] = `
+<BrowserRouter>
+  <Wrapper>
+    <GlobalStyleComponent />
+    <Switch>
+      <Route
+        className="testHome"
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        className="testSearch"
+        component={[Function]}
+        exact={true}
+        path="/busca-cnpj"
+      />
+    </Switch>
+  </Wrapper>
+</BrowserRouter>
+`;

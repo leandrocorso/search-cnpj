@@ -18,15 +18,15 @@ const GlobalStyle = createGlobalStyle`
 	}
 
     body {
-		font-family: ${p => p.theme.defaultFontFamily};
-        font-size: ${p => p.theme.defaultFontSize};
-		color: ${p => p.theme.colors.c8};
-		background-color: ${p => p.theme.colors.c4};
+		font-family: ${p => p.theme.themeDefault.defaultFontFamily};
+        font-size: ${p => p.theme.themeDefault.defaultFontSize};
+		color: ${p => p.theme.themeDefault.colors.c8};
+		background-color: ${p => p.theme.themeDefault.colors.c4};
 	}
 
 	#root {
 		margin: 0 auto;
-		background-color: ${p => p.theme.colors.c6};
+		background-color: ${p => p.theme.themeDefault.colors.c6};
 	}
 `;
 

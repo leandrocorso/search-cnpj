@@ -18,8 +18,8 @@ const Header = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    color: ${p => p.theme.colors.c6};
-    background-image: linear-gradient(to right, ${p => p.theme.colors.c1}, ${p => p.theme.colors.c2});
+    color: ${p => p.theme.themeDefault.colors.c6};
+    background-image: linear-gradient(to right, ${p => p.theme.themeDefault.colors.c1}, ${p => p.theme.themeDefault.colors.c2});
 `;
 
 const Heading = styled.div`
@@ -31,7 +31,7 @@ const ChartIcon = styled(Icon)`
     width: 1rem;
     height: 1rem;
     margin-right: 1rem;
-    fill: ${p => p.theme.colors.c6};
+    fill: ${p => p.theme.themeDefault.colors.c6};
 `;
 
 const Title = styled.p`
@@ -66,21 +66,21 @@ const StepNumber = styled.div`
     margin-right: 1rem;
     font-size: 70%;
     font-weight: 700;
-    color: ${p => p.theme.colors.c1};
-    border: 2px solid ${p => p.theme.colors.c1};
+    color: ${p => p.theme.themeDefault.colors.c1};
+    border: 2px solid ${p => p.theme.themeDefault.colors.c1};
 `;
 
 const SearchCnpj = () => (
     <Wrapper>
         <Header>
             <Heading>
-                <ChartIcon src="line-chart" />
+                <ChartIcon className="testHeadingIcon" src="line-chart" />
                 <Title>Nova Cotação <small>#980</small></Title>
             </Heading>
             <Avatar />
         </Header>
         <Step>
-            <StepNumber>1</StepNumber>
+            <StepNumber className="testStep">1</StepNumber>
             Busca por CNPJ ou empresa
         </Step>
         <SearchCnpjForm/>

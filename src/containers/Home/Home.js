@@ -8,8 +8,8 @@ const Wrapper = styled.div`
     align-items: flex-end;
     height: 100%;
     text-align: center;
-    color: ${p => p.theme.colors.c6}
-    background-image: linear-gradient(${p => p.theme.colors.c1}, ${p => p.theme.colors.c2});
+    color: ${p => p.theme.themeDefault.colors.c6}
+    background-image: linear-gradient(${p => p.theme.themeDefault.colors.c1}, ${p => p.theme.themeDefault.colors.c2});
 `;
 
 const Heading = styled.div`
@@ -24,7 +24,7 @@ const ChartIcon = styled(Icon)`
     width: 1rem;
     height: 1rem;
     margin: 0 auto;
-    fill: ${p => p.theme.colors.c6};
+    fill: ${p => p.theme.themeDefault.colors.c6};
 `;
 
 const Title = styled.p`
@@ -38,13 +38,13 @@ const Title = styled.p`
 const Home = () => (
     <Wrapper>
         <Heading>
-            <ChartIcon src="line-chart" />
+            <ChartIcon className="testHeadingIcon" src="line-chart" />
             <Title>
                 Cotação de seguros<br />
                 <small>Solução inovadora da líder de mercado</small>
             </Title>
             <Container>
-                <Button to="/busca-cnpj" icon="arrow-right2" color="primary">Iniciar</Button>
+                <Button className="testSearch" to="/busca-cnpj" icon="arrow-right2" color="primary">Iniciar</Button>
             </Container>
         </Heading>
     </Wrapper>

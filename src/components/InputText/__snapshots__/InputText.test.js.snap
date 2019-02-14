@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing InputText component Should render correctly 1`] = `
+<styled.div>
+  <label />
+  <styled.div>
+    <t
+      className="inputTest"
+      onChange={[Function]}
+      render={[Function]}
+      value=""
+    />
+  </styled.div>
+</styled.div>
+`;
