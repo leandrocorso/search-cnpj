@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	#root {
+		max-width: 420px;
 		margin: 0 auto;
 		background-color: ${p => p.theme.themeDefault.colors.c6};
 	}
