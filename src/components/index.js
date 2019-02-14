@@ -1,3 +1,7 @@
-import { Button } from './Button';
+import Button from "./Button";
+import Icon from "./Icon";
+import InputText from "./InputText";
 
-export { Button };
+import Container from "./layout/Container";
+
+export { Button, Icon, InputText, Container };
