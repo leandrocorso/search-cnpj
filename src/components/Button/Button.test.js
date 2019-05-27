@@ -1,35 +1,56 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { findByTestAttr } from '../../utils';
+
 import Button from './Button';
 
-describe('Testing Button component', () => {
+const setup = (props = {}) => (
+    shallow(<Button { ...props } />)
+);
+
+let component;
+
+describe('Button component', () => {
+
+    beforeEach(() => { 
+        component = setup();
+    });
+
+    test('Should render the component correctly', () => {
+        expect(component).toMatchSnapshot();
+    });
+
+    test ('Should have a text', () => {
+        const wrapper = findByTestAttr(component, 'buttonText');
+        expect(wrapper.text()).not.toEqual('');
+    });
+
+    test ('Should have a route', () => {
+        const wrapper = findByTestAttr(component, 'button');
+        expect(wrapper.props().to).not.toBeUndefined();
+    });
     
-    const wrapper = shallow(<Button>Text button</Button>);
-    const element = wrapper.find('.btn');
-    
-    test('Button exists', () => {
-        expect(element);
-    });
 
-    test('Should have a text', () => {
-        expect(element).toHaveText();
-    });
+    describe('with icon', () => {
 
-    test('Should have a route', () => {
-        expect(element).toHaveProp('to');
+        beforeEach(() => { 
+            component = setup({ icon: 'icon-name' });
+        });
+        
+        test ('Should have a icon', () => {
+            const wrapper = findByTestAttr(component, 'button');
+            expect(wrapper.props().icon).not.toBeUndefined();
+        });
+            
     });
+        
+    describe('without icon', () => {
+       
+        test ('Should not have a icon', () => {
+            const wrapper = findByTestAttr(component, 'button');
+            expect(wrapper.props().icon).toBeUndefined();
+        });
 
-    test('Should have a icon', () => {
-        expect(element).toHaveProp('icon');
     });
-
-    test('Should have a color', () => {
-        expect(element).toHaveProp('color');
-    });
-
-    test('Should render correctly', () => {
-        expect(wrapper).toMatchSnapshot();
-    });
-
-})
+});

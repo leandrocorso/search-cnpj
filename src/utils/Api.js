@@ -15,7 +15,7 @@ if (Auth.getToken()) {
 instance.interceptors.request.use(
 	function(config) {
 		if (config.headers.common.Authorization) {
-			if (!Auth.isValidToken()) {
+			if (!Auth.isLogged()) {
 				throw new axios.Cancel('Invalid token');
 			}
 		}

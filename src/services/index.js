@@ -4,6 +4,7 @@ class Services {
 
     static getCnpj(cnpj) {
         
+        // In a real world application it should to be "/quote/:cnpj"
         Api.get('/users/1');
 
         return new Promise((resolve, reject) => {

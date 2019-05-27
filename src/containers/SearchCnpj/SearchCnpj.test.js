@@ -1,70 +1,121 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { findByTestAttr, Auth, consts } from '../../utils';
+
 import SearchCnpj from './SearchCnpj';
 import SearchCnpjForm from './SearchCnpjForm';
 
-describe('Testing SearchCnpj component', () => {
+const containerSetup = (props = {}) => (
+    shallow(<SearchCnpj { ...props } />)
+);
+
+const formSetup = (props = {}) => (
+    shallow(<SearchCnpjForm { ...props } />)
+);
+
+let component;
+
+describe('SearchCnpj container', () => {
+
+    beforeEach(() => { 
+        component = containerSetup();
+    });
+
+    test('Should be logged', () => {
+        Auth.setToken();
+        const isLogged = Auth.isLogged();
+        expect(isLogged).toBe(true);
+    });
+
+    test('Should render the container correctly', () => {
+        expect(component).toMatchSnapshot();
+    });
     
-    const wrapper = shallow(<SearchCnpj />);
-    const wrapperForm = shallow(<SearchCnpjForm />);
-    
-    test('SearchCnpj exists', () => {
-        expect(wrapper);
+    test('Should have a chart icon in the heading', () => {
+        const wrapper = findByTestAttr(component, 'chartIcon');
+        expect(wrapper.length).toBe(1);
     });
 
-    test('Should have "chart icon" in the heading', () => {
-        expect(wrapper.find('.testHeadingIcon')).toHaveProp({ src : 'line-chart'});
+    test('Should have a title in the heading', () => {
+        const wrapper = findByTestAttr(component, 'title');
+        expect(wrapper.length).toBe(1);
     });
 
-    test('Should number 1 into step indicator', () => {
-        expect(wrapper.find('.testStep')).toHaveText('1');
+    test('Should have a subtitle in the heading', () => {
+        const wrapper = findByTestAttr(component, 'subtitle');
+        expect(wrapper.length).toBe(1);
     });
 
-    test('Should render correctly', () => {
-        expect(wrapper).toMatchSnapshot();
+    test('Should have a user avatar in the heading', () => {
+        const wrapper = findByTestAttr(component, 'avatar');
+        expect(wrapper.length).toBe(1);
     });
 
-    // Form
-
-    test('SearchCnpjForm exists', () => {
-        expect(wrapperForm);
+    test('Should have the number 1 into step indicator', () => {
+        const wrapper = findByTestAttr(component, 'stepNumber');
+        expect(wrapper).toHaveText('1');
     });
 
-    test('Input text should be named as "cnpj"', () => {
-        expect(wrapperForm.find('#cnpj')).toHaveProp({ name: 'cnpj'});
+});
+
+
+describe('SearchCnpj container', () => {
+
+    beforeEach(() => { 
+        component = formSetup();
     });
 
-    test('Input text should be placeholded like cnpj format', () => {
-        expect(wrapperForm.find('#cnpj')).toHaveProp({ placeholder : '__.___.___/___-__'});
+    test('Should render the form correctly', () => {
+        expect(component).toMatchSnapshot();
     });
 
-    test('Input text should be maked like cnpj format', () => {
-        expect(wrapperForm.find('#cnpj')).toHaveProp({ mask : [/\d/,/\d/,'.',/\d/,/\d/,/\d/,'.',/\d/,/\d/,/\d/,'/',/\d/,/\d/,/\d/,/\d/,'-',/\d/,/\d/,] });
+    test('Should have a form', () => {
+        const wrapper = findByTestAttr(component, 'searchForm');
+        expect(wrapper.length).toBe(1);
     });
 
-    test('Input text should not enabled auto complete funcionality', () => {
-        expect(wrapperForm.find('#cnpj')).toHaveProp({ autoComplete : 'off' });
+    test('Should have a input text to insert cnpj value', () => {
+        const wrapper = findByTestAttr(component, 'inputCnpj');
+        expect(wrapper).toHaveProp({ label: 'CNPJ / Empresa'});
+        expect(wrapper).toHaveProp({ name: 'cnpj'});
+        expect(wrapper).toHaveProp({ placeholder: '__.___.___/___-__'});
     });
 
-    test('Send button exists', () => {
-        expect(wrapperForm.find('.testButton'));
+    test('Should have a submit form button', () => {
+        const wrapper = findByTestAttr(component, 'submitButton');
+        expect(wrapper.length).toBe(1);
+        expect(wrapper).toHaveProp({ icon: 'arrow-right2'});
     });
 
-    test('Send button linked to home', () => {
-        expect(wrapperForm.find('.testButton')).toHaveProp({ to : '/' });
+    test('Submit button should have primary color if CNPJ is valid', () => {
+        component.setState({ isValid: true }, () => {
+            const wrapper = findByTestAttr(component, 'submitButton');
+            expect(wrapper).toHaveProp({ to: '/'});
+            expect(wrapper).toHaveProp({ className: 'primary'});
+        })
     });
 
-    test('Send button with right arrow icon', () => {
-        expect(wrapperForm.find('.testButton')).toHaveProp({ icon : 'arrow-right2' });
+    test('Submit button should have default and disabled color if CNPJ is invalid', () => {
+        component.setState({ isValid: false }, () => {
+            const wrapper = findByTestAttr(component, 'submitButton');
+            expect(wrapper).toHaveProp({ to: '#'});
+            expect(wrapper).toHaveProp({ className: 'default disabled'});
+        })
     });
 
-    test('Send button should be a color', () => {
-        expect(wrapperForm.find('.testButton')).toHaveProp('color');
+});
+
+describe('Search result', () => {
+
+    test('Should be true for a valid CNPJ', async () => {
+        await component.instance().getCnpj(consts.VALID_CNPJ)
+        expect(component.state().isValid).toBe(true);
     });
 
-    test('Should render correctly', () => {
-        expect(wrapperForm).toMatchSnapshot();
+    test('Should be false for a invalid CNPJ', async () => {
+        await component.instance().getCnpj('00000000000000')
+        expect(component.state().isValid).toBe(false);
     });
 
-})
+});

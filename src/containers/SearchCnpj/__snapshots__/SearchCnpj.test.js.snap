@@ -1,38 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing SearchCnpj component Should render correctly 1`] = `
-<styled.div>
-  <styled.div>
-    <styled.div>
-      <Styled(Icon)
-        className="testHeadingIcon"
+exports[`SearchCnpj container Should render the container correctly 1`] = `
+<div
+  className="search-cnpj"
+>
+  <div
+    className="header"
+  >
+    <div
+      className="heading"
+    >
+      <Icon
+        className="chart-icon"
+        data-test="chartIcon"
         src="line-chart"
       />
-      <styled.p>
+      <div
+        className="title"
+        data-test="title"
+      >
         Nova Cotação 
-        <small>
+        <small
+          data-test="subtitle"
+        >
           #980
         </small>
-      </styled.p>
-    </styled.div>
-    <styled.div />
-  </styled.div>
-  <styled.div>
-    <styled.div
-      className="testStep"
+      </div>
+    </div>
+    <div
+      className="avatar"
+      data-test="avatar"
+    />
+  </div>
+  <div
+    className="step"
+  >
+    <div
+      className="step-number"
+      data-test="stepNumber"
     >
       1
-    </styled.div>
+    </div>
     Busca por CNPJ ou empresa
-  </styled.div>
+  </div>
   <SearchCnpjForm />
-</styled.div>
+</div>
 `;
 
-exports[`Testing SearchCnpj component Should render correctly 2`] = `
-<styled.form>
-  <Styled(InputText)
+exports[`SearchCnpj container Should render the form correctly 1`] = `
+<form
+  data-test="searchForm"
+>
+  <InputText
     autoComplete="off"
+    className="input-cnpj"
+    data-test="inputCnpj"
     id="cnpj"
     isValid=""
     label="CNPJ / Empresa"
@@ -62,15 +84,17 @@ exports[`Testing SearchCnpj component Should render correctly 2`] = `
     onChange={[Function]}
     placeholder="__.___.___/___-__"
   />
-  <styled.div>
+  <div
+    className="container"
+  >
     <Button
-      className="testButton"
-      color="primary"
+      className="default disabled"
+      data-test="submitButton"
       icon="arrow-right2"
-      to="/"
+      to="#"
     >
       Ok
     </Button>
-  </styled.div>
-</styled.form>
+  </div>
+</form>
 `;

@@ -1,15 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing InputText component Should render correctly 1`] = `
-<styled.div>
-  <label />
-  <styled.div>
+exports[`InputText component Should render the component correctly 1`] = `
+<div
+  className="form-group"
+  data-test="formGroup"
+>
+  <label
+    data-test="formLabel"
+  />
+  <div
+    className="input-group"
+    data-test="inputGroup"
+  >
     <t
       className="inputTest"
+      data-test="inputText"
       onChange={[Function]}
       render={[Function]}
       value=""
     />
-  </styled.div>
-</styled.div>
+  </div>
+</div>
 `;

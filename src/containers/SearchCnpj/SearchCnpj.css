@@ -1,0 +1,84 @@
+div.search-cnpj {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+div.search-cnpj div.header {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    color: #eee;
+    background-image: linear-gradient(to right, #967cf0, #a36cf3);
+}
+
+div.search-cnpj div.heading {
+    display: flex;
+    align-items: center;
+}
+
+div.search-cnpj .chart-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+    fill: #eee;
+}
+
+div.search-cnpj div.title {
+    line-height: 120%
+}
+
+div.search-cnpj div.title small {
+    display: block;
+}
+
+div.search-cnpj div.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-image: url(https://yt3.ggpht.com/-o8QZ_nr7zlA/AAAAAAAAAAI/AAAAAAABfOs/cU3C7q5D8DA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg);
+    background-size: cover;
+}
+
+div.search-cnpj div.step {
+    display: flex;
+    align-items: center;
+    height: 4.5rem;
+    padding: 1rem;
+}
+
+div.search-cnpj div.step div.step-number {
+    display: flex;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+    font-size: 70%;
+    font-weight: 700;
+    color: #967cf0;
+    border: 2px solid #967cf0;
+}
+
+/* Form */
+
+div.search-cnpj form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+div.search-cnpj div.input-cnpj {
+	display: block;
+	margin-top: .5rem;
+	font-size: 120%;
+	font-weight: 700;
+	color: #333;
+}
+
+div.search-cnpj div.input-cnpj:focus {
+    color: #333;
+}

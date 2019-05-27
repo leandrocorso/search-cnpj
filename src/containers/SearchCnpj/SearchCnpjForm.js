@@ -1,28 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
-import { Container, Button, InputText } from '../../components';
+import { Button, InputText } from '../../components';
 
 import Services from '../../services';
-
-const Form = styled.form`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
-`;
-
-const InputCnpj = styled(InputText)`
-	display: block;
-	margin-top: .5rem;
-	font-size: 120%;
-	font-weight: 700;
-	color: ${p => p.theme.themeDefault.colors.c8};
-
-	&:focus {
-		color: ${p => p.theme.themeDefault.colors.c8};
-	}
-`;
 
 class SearchCnpjForm extends Component {
 
@@ -48,9 +28,16 @@ class SearchCnpjForm extends Component {
 
 		const { isValid } = this.state;
 
+		const buttonProps = isValid 
+			? { className: 'primary', to: '/' }
+			: { className: 'default disabled', to: '#' }
+
 		return(
-			<Form>
-				<InputCnpj 
+			<form data-test="searchForm">
+
+				<InputText 
+					data-test="inputCnpj"
+					className="input-cnpj"
 					id="cnpj" 
 					name="cnpj" 
 					label="CNPJ / Empresa" 
@@ -60,10 +47,20 @@ class SearchCnpjForm extends Component {
 					autoComplete="off"
 					isValid={isValid}
 				/>
-				<Container>
-					<Button className="testButton" to="/" icon="arrow-right2" color={`${isValid ? 'success' : 'primary'}`}>Ok</Button>
-				</Container>
-			</Form>
+
+				<div className="container">
+
+					<Button 
+						data-test="submitButton"
+						icon="arrow-right2" 
+						{ ...buttonProps }
+						>
+						Ok
+					</Button>
+
+				</div>
+
+			</form>
 		);
 	}
 

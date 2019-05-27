@@ -1,21 +1,32 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { GlobalStyle } from '../../styles';
+import { Auth } from '../../utils';
 
-import Wrapper from './Wrapper';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
 import Home from '../Home';
 import SearchCnpj from '../SearchCnpj';
 
+import './App.css';
+
+Auth.setToken();
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route { ...rest } render={ props => (
+        Auth.isLogged() 
+            ? ( <Component { ...props } /> ) 
+            : ( <Redirect to={{ pathname: '/', state: { from: props.location } }} /> )
+    )} />
+);
+
+
+
 const App = () => (
-    <BrowserRouter>
-        <Wrapper>
-            <GlobalStyle />
-            <Switch>
-                <Route className="testHome" exact path="/" component={Home} />
-                <Route className="testSearch" exact path="/busca-cnpj" component={SearchCnpj} />
-            </Switch>
-        </Wrapper>
+    <BrowserRouter data-test="browserRouter">
+        <Switch data-test="appWrapper">
+            <Route data-test="homeRouter" exact path="/" component={Home} />
+            <PrivateRoute data-test="searchRouter" exact path="/search-cnpj" component={SearchCnpj} />
+        </Switch>
     </BrowserRouter>
 );
 

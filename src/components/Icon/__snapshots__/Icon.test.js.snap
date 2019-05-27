@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Icon component Should render correctly 1`] = `
-<svg>
+exports[`Icon component Should render the component correctly 1`] = `
+<svg
+  data-test="icon"
+>
   <use
     xlinkHref="package.svg#icon-undefined"
   />

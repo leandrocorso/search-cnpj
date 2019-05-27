@@ -1,23 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing App component Should render correctly 1`] = `
-<BrowserRouter>
-  <Wrapper>
-    <GlobalStyleComponent />
-    <Switch>
-      <Route
-        className="testHome"
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
-      <Route
-        className="testSearch"
-        component={[Function]}
-        exact={true}
-        path="/busca-cnpj"
-      />
-    </Switch>
-  </Wrapper>
+exports[`App container Should render the container correctly 1`] = `
+<BrowserRouter
+  data-test="browserRouter"
+>
+  <Switch
+    data-test="appWrapper"
+  >
+    <Route
+      component={[Function]}
+      data-test="homeRouter"
+      exact={true}
+      path="/"
+    />
+    <PrivateRoute
+      component={[Function]}
+      data-test="searchRouter"
+      exact={true}
+      path="/search-cnpj"
+    />
+  </Switch>
 </BrowserRouter>
 `;

@@ -1,90 +1,50 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Fragment } from 'react';
 
 import { Icon } from '../../components';
 
 import SearchCnpjForm from './SearchCnpjForm';
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-`;
-
-const Header = styled.div`
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    color: ${p => p.theme.themeDefault.colors.c6};
-    background-image: linear-gradient(to right, ${p => p.theme.themeDefault.colors.c1}, ${p => p.theme.themeDefault.colors.c2});
-`;
-
-const Heading = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-const ChartIcon = styled(Icon)`
-    width: 1rem;
-    height: 1rem;
-    margin-right: 1rem;
-    fill: ${p => p.theme.themeDefault.colors.c6};
-`;
-
-const Title = styled.p`
-    line-height: 120%
-    
-    small {
-        display: block;
-    }
-`;
-
-const Avatar = styled.div`
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-image: url(http://placebeard.it/50);
-    background-size: cover;
-`;
-
-const Step = styled.div`
-    display: flex;
-    align-items: center;
-    height: 4.5rem;
-    padding: 1rem;
-`;
-
-const StepNumber = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 1rem;
-    font-size: 70%;
-    font-weight: 700;
-    color: ${p => p.theme.themeDefault.colors.c1};
-    border: 2px solid ${p => p.theme.themeDefault.colors.c1};
-`;
+import './SearchCnpj.css';
 
 const SearchCnpj = () => (
-    <Wrapper>
-        <Header>
-            <Heading>
-                <ChartIcon className="testHeadingIcon" src="line-chart" />
-                <Title>Nova Cotação <small>#980</small></Title>
-            </Heading>
-            <Avatar />
-        </Header>
-        <Step>
-            <StepNumber className="testStep">1</StepNumber>
+
+    <div className="search-cnpj">
+
+        <div className="header">
+
+            <div className="heading">
+
+                <Icon
+                    className="chart-icon" 
+                    data-test="chartIcon" 
+                    src="line-chart" />
+
+                <div data-test="title" className="title">
+                    Nova Cotação <small data-test="subtitle">#980</small>
+                </div>
+
+            </div>
+
+            <div data-test="avatar" className="avatar" />
+
+        </div>
+
+        <div className="step">
+
+            <div 
+                data-test="stepNumber"
+                className="step-number">
+                1
+            </div>
+
             Busca por CNPJ ou empresa
-        </Step>
+
+        </div>
+
         <SearchCnpjForm/>
-    </Wrapper>
+
+    </div>
+
 );
 
 export default SearchCnpj;

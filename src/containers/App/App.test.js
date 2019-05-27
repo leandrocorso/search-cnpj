@@ -1,34 +1,44 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { findByTestAttr } from '../../utils';
+
 import App from './App';
 
-describe('Testing App component', () => {
-    
-    const wrapper = shallow(<App />);
-    
-    test('App exists', () => {
-        expect(wrapper);
+const setup = (props = {}) => (
+    shallow(<App { ...props } />)
+);
+
+let component;
+
+describe('App container', () => {
+
+    beforeEach(() => { 
+        component = setup();
     });
 
-    test('App have the browser router', () => {
-        expect(wrapper.find('BrowserRouter'));
+    test('Should render the container correctly', () => {
+        expect(component).toMatchSnapshot();
     });
 
-    test('App have the global style component', () => {
-        expect(wrapper.find('GlobalStyleComponent'));
+    test('Should have a browser router', () => {
+        const wrapper = findByTestAttr(component, 'browserRouter');
+        expect(wrapper.length).toBe(1);
     });
 
-    test('App have the path to home', () => {
-        expect(wrapper.find('.testHome')).toHaveProp({ path : '/'});
+    test('Should have a path to home', () => {
+        const wrapper = findByTestAttr(component, 'homeRouter');
+        expect(wrapper).toHaveProp({ path : '/'});
     });
 
-    test('App have the path to search page', () => {
-        expect(wrapper.find('.testSearch')).toHaveProp({ path : '/busca-cnpj'});
+    test('Should have a path to search', () => {
+        const wrapper = findByTestAttr(component, 'searchRouter');
+        expect(wrapper).toHaveProp({ path : '/search-cnpj'});
     });
 
-    test('Should render correctly', () => {
-        expect(wrapper).toMatchSnapshot();
+    test('Should have a global wrapper component', () => {
+        const wrapper = findByTestAttr(component, 'appWrapper');
+        expect(wrapper.length).toBe(1);
     });
 
 })

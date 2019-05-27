@@ -1,29 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Home component Should render correctly 1`] = `
-<styled.div>
-  <styled.div>
-    <Styled(Icon)
-      className="testHeadingIcon"
+exports[`Home container Should render the container correctly 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="heading"
+  >
+    <Icon
+      className="chart-icon"
+      data-test="chartIcon"
       src="line-chart"
     />
-    <styled.p>
+    <div
+      className="title"
+    >
       Cotação de seguros
       <br />
       <small>
         Solução inovadora da líder de mercado
       </small>
-    </styled.p>
-    <styled.div>
+    </div>
+    <div
+      className="container"
+    >
       <Button
-        className="testSearch"
-        color="primary"
+        className="testSearch default"
+        data-test="testSearch"
         icon="arrow-right2"
-        to="/busca-cnpj"
-      >
-        Iniciar
-      </Button>
-    </styled.div>
-  </styled.div>
-</styled.div>
+        to="/search-cnpj"
+      />
+    </div>
+  </div>
+</div>
 `;

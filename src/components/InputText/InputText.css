@@ -1,0 +1,40 @@
+.form-group {
+	padding: 1rem;
+	background-color: #fff;
+}
+
+.form-group label {
+    font-size: 80%;
+    color: #999;
+}
+
+.form-group .input-group {
+	width: 100%;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-top: 1rem;
+}
+
+.form-group .input-group .inputTest {
+	font-size: 150%;
+}
+
+.form-group .icon {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	border: 2px solid #fff;
+}
+
+.form-group .icon.success {
+	fill: #fff;
+	border-color: #85cd1a;
+	background-color: #85cd1a;
+}
+
+.form-group .icon.danger {
+	fill: #fff;
+	border-color: #f66;
+	background-color: #f66;
+}

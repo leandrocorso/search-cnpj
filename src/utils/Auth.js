@@ -1,28 +1,20 @@
 import Cookies from 'universal-cookie';
 
-// utils
 import { consts } from './';
 
 const cookies = new Cookies();
 
 class Auth {
-  static getToken() {
-    return cookies.get('token');
-  }
 
-  static setToken() {
-    cookies.set('token', consts.TOKEN, { path: '/' });
-  }
+    static getToken = () => ( cookies.get('token') );
+    
+    static setToken = () => ( cookies.set('token', consts.TOKEN, { path: '/' } ) );
 
-  static isValidToken() {
-    if (!cookies.get('token')) return false;
+    static isLogged = () => {
+        if (!cookies.get('token')) return false;
+        return cookies.get('token') === consts.TOKEN;
+    };
 
-    if (cookies.get('token') === consts.TOKEN) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
 
 export default Auth;
