@@ -11,6 +11,11 @@ yarn start - executa o projeto
 yarn test
 ```
 
+## Coverage
+O relatório de cobertura dos testes está presente na aplicação e pode ser acessado na pasta: /coverage/lcov-report/index.html
+
+
+
 ### Autor
 Leandro Pereira Corso
 (contato@leandrocorso.com.br)
